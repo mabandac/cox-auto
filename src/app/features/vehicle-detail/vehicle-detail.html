@@ -17,7 +17,7 @@
 			<span>Mileage:</span> {{  vehicle()?.mileageFormatted}} miles
 		</div>
 		<div class="vehicle-details__data-price">
-			<span>Price:</span> {{ vehicle()?.priceFormatted }}
+			<span>Price:</span> £{{ vehicle()?.priceFormatted }}
 		</div>
 
 		<h3>Finance Quote</h3>
@@ -50,13 +50,13 @@
 				<span>On the Road Price:</span> £{{ quote.onTheRoadPrice | number:'1.0-0' }} 
 			</div>
 			<div >
-				<span>Price:</span> {{ vehicle()?.priceFormatted }}
+				<span>Price:</span> £{{ vehicle()?.priceFormatted }}
 			</div>
 			<div >
 				<span>Total Deposit:</span> £{{ quote.totalDeposit | number:'1.0-0' }}
 			</div>
 			<div>
-				<span>Amount of Credit:</span> {{ vehicle()?.priceFormatted }}
+				<span>Amount of Credit:</span> £{{ vehicle()?.priceFormatted }}
 			</div>
 			<div >
 				<span>Price:</span> £{{ quote.totalAmountOfCredit | number:'1.0-0' }}
