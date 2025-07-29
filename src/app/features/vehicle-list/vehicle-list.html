@@ -1,0 +1,52 @@
+<div class="vehicle-inventory">
+
+	<div class="vehicle-inventory__filter"> 
+		<input 
+			type="text" 
+			placeholder="Search for a vehicle (min 3 charcaters)" 
+			(input)="searchVehicle($any($event.target).value)"
+		/>
+
+			<select (change)="sort($any($event.target).value)">
+				<option value="price">Price</option>
+				<option value="year">Year</option>
+				<option value="mileage">Mileage</option>
+			</select>
+
+			<select (change)="direction($any($event.target).value)">
+				<option value="asc">Ascending</option>
+				<option value="desc">Descending</option>
+			</select>
+	</div>
+
+
+		<div class="vehicle-inventory__vehicle-list">
+			<div *ngFor="let vehicle of sortedVehicles(); index as i" class="vehicle-inventory__vehicle">
+				<a [routerLink]="['/vehicles', vehicle.id]">
+					<div class="vehicle-inventory__vehicle-name">
+						{{ vehicle.make }} {{ vehicle. model }}
+					</div>
+					<div class="vehicle-inventory__vehicle-info">
+						Color: {{ vehicle.colour}}
+					</div>
+					<div class="vehicle-inventory__vehicle-info">
+						Year: {{ vehicle.year}}
+					</div>
+					<div class="vehicle-inventory__vehicle-info">
+						Mileage: {{ vehicle.mileageFormatted }} miles
+					</div>
+					<div class="vehicle-inventory__vehicle-price">
+						Price: £{{ vehicle.priceFormatted }}
+					</div>
+					</a>
+			</div>
+		</div>
+
+	<div class="vehicle-inventory__error" *ngIf="sortedVehicles().length === 0 && termFilter().length > 0">
+		No match found for your search term!
+	</div>
+</div>
+
+
+
+

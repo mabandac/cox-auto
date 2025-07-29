@@ -1,0 +1,69 @@
+<div class="vehicle-details">
+	<div class="vehicle-details__error" *ngIf="pageError().length > 0">
+		{{ pageError() }}
+	</div>
+
+	<div *ngIf="vehicle()" class="vehicle-details__data">
+		<div class="vehicle-details__data-name">
+			 {{ vehicle()?.make }} {{ vehicle()?.year }}
+		</div>
+		<div class="vehicle-details__data-info"
+		><span>Colour:</span> {{ vehicle()?.colour }}
+	</div>
+		<div class="vehicle-details__data-info" >
+			<span>Year:</span> {{ vehicle()?.year }} 
+		</div>
+		<div class="vehicle-details__data-info">
+			<span>Mileage:</span> {{  vehicle()?.mileageFormatted}} miles
+		</div>
+		<div class="vehicle-details__data-price">
+			<span>Price:</span> {{ vehicle()?.priceFormatted }}
+		</div>
+
+		<h3>Finance Quote</h3>
+		<div class="vehicle-details__quote">
+			<label>
+				<span>Term (months):</span>
+				<input
+					type="number"
+          [(ngModel)]="term"
+					min="1"
+					(ngModelChange)="calculatedFinance()"
+					class="vehicle-details__quote-finance"
+				/>
+			</label>
+	
+			<label>
+				<span>Deposit (%):</span>
+				<input
+					type="number"
+					min="0"
+          [(ngModel)]="deposit"
+					(ngModelChange)="calculatedFinance()"
+					class="vehicle-details__quote-finance"
+				/>
+			</label>
+		</div>
+	
+		<div *ngIf="quote as quote" class="vehicle-details__data-price">
+			<div>
+				<span>On the Road Price:</span> £{{ quote.onTheRoadPrice | number:'1.0-0' }} 
+			</div>
+			<div >
+				<span>Price:</span> {{ vehicle()?.priceFormatted }}
+			</div>
+			<div >
+				<span>Total Deposit:</span> £{{ quote.totalDeposit | number:'1.0-0' }}
+			</div>
+			<div>
+				<span>Amount of Credit:</span> {{ vehicle()?.priceFormatted }}
+			</div>
+			<div >
+				<span>Price:</span> £{{ quote.totalAmountOfCredit | number:'1.0-0' }}
+			</div>
+			<div class="vehicle-details__data-price-payment">
+				<span>Monthly Payment (x{{ quote.numberOfMonthlyPayments }}):</span> 
+				 £{{ quote.monthlyPayment | number:'1.2-2' }}
+			</div>
+	</div>
+</div>

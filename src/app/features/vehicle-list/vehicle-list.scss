@@ -1,0 +1,80 @@
+
+@import '../../styles/variables';
+
+.vehicle-inventory {
+	font-family: $font-family;
+	background-color: $background;
+	padding: $space-xl;
+	min-height: 100vh;
+
+	&__filter{
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: $space-xl;
+		gap: $space-md;
+
+		input, 
+		select {
+			background-color: $color-white;
+			padding: $space-sm $space-md;
+			border: 1px solid #dcdcdc;
+			font-size: $font-size-sm;
+			border-radius: $radius;
+		}
+
+		select {
+			min-width: 200px;
+			flex-grow: 1;
+		}
+
+		input {
+			flex-grow: 2;
+		}
+	}
+
+	&__vehicle-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: $space-lg;
+	}
+
+	&__vehicle {
+		background-color: $color-white;
+		border-radius: $radius;
+		box-shadow: $shadow;
+		padding: 1.5rem;
+		justify-content: space-between;
+
+		&-name {
+			font-size: $font-size-md;
+			color: $primary-color;
+			margin-bottom: $space-sm;
+		}
+
+		&-info {
+			font-size: $font-size-sm;
+			color: $text-color;
+			margin-bottom: $space-xs;
+		}
+		&-price {
+			font-size: $font-size-lg;
+			font-weight: bold;
+			color: $color-blue;
+			margin-top: $space-md;
+		}
+
+		a { 
+			text-decoration: none;
+			color: inherit;
+			display: block;
+		}
+	}
+
+	&__error {
+		color: $color-red;
+		border: 1px solid $color-red;
+		padding: 1rem;
+		border-radius: $radius;
+		margin-top: 2rem;
+	}
+}

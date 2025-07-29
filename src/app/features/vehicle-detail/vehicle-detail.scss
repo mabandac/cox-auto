@@ -1,0 +1,72 @@
+@import '../../styles/variables';
+
+.vehicle-details {
+    font-family: $font-family;
+    background-color: $color-white;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    padding: $space-lg;
+    max-width: 20rem;
+    margin: auto;
+    color: $text-color;
+
+    &__error {
+		color: $color-red;
+		border: 1px solid $color-red;
+		padding:$space-md;
+		border-radius: $radius;
+		margin-top: $space-xl;
+        text-align: center;
+	}
+
+    &__data {
+        font-size: $font-size-lg;
+        color: $primary-color;
+        margin-bottom: $space-md;
+
+        &-name {
+            font-size: $font-size-md;
+            color: $primary-color;
+            margin-bottom: $space-sm;
+        }
+
+        &-info {
+            font-size: $font-size-sm;
+            color: $text-color;
+            margin-bottom: $space-xs;
+
+            span {
+                color: $primary-color;
+                font-weight: 500;
+                margin-right: $space-xs;
+            }
+        }
+
+        &-price {
+            font-size: $font-size-lg;
+            font-weight: bold;
+            color: $color-blue;
+            margin-top: $space-md;
+            margin-bottom: $space-md;
+
+            &-payment {
+                color: $text-color;
+            }
+        }
+    }
+
+    &__quote-finance{
+        display: flex;
+		flex-wrap: wrap;
+		margin-bottom: $space-xl;
+		gap: $space-md;
+        background-color: $color-white;
+        padding: $space-sm $space-md;
+        border: 1px solid #dcdcdc;
+        font-size: $font-size-sm;
+        border-radius: $radius;
+        min-width: 200px;
+        flex-grow: 1;
+}
+
+}
